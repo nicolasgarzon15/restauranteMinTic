@@ -26,7 +26,7 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
 
     private void conectar() {
 
-        String DB_URL = "jdbc:mysql://localhost:3306/restaurante";
+        String DB_URL = "jdbc:mysql://127.0.0.1:3306/restaurante";
         String DB_USER = "root";
         String DB_PASSWORD = "1204";
         String DB_DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
@@ -101,7 +101,7 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
     @Override
     public void actualizarPlato(Plato plato, int platoId) {
         this.conectar(); 
-        String sql = "UPDATE PLATO SET (ID_PLATO=?,TIPO_PLATO=?,NOMBRE_PLATO=?,DESCRIPCION=?,PRECIO=?) WHERE ID_PLATO=?;";
+        String sql = "UPDATE PLATO SET ID_PLATO=?,TIPO_PLATO=?,NOMBRE_PLATO=?,DESCRIPCION=?,PRECIO=? WHERE ID_PLATO=?;";
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setInt(1, plato.getPlatoId());
@@ -129,14 +129,14 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
     public Plato obtenerPlatoPorId(Integer id) {
         Plato plato = null; 
         this.conectar();
-        String sql = "SELECT ¨FROM PLATO wher  id_plato = ? ";
+        String sql = "SELECT * FROM PLATO WHERE id_plato = ? ";
         try {
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet res = statement.executeQuery();
             while(res.next()){
                 int platoId = res.getInt("ID_PLATO");
-                String tipoPlato = res.getString("NOMBRE_TIPO_PLATO");
+                int tipoPlato = res.getInt("TIPO_PLATO");
                 String nombrePlato = res.getString("NOMBRE_PLATO");
                 String descripcion = res.getString("DESCRIPCION");
                 double precio = res.getDouble("PRECIO");

@@ -25,6 +25,7 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
     }
 
     public vistaInsertarPlatos(Plato plato, vistaPlatos vistaPlato) {
+        initComponents();
         this.plato = plato;
         this.textIdPlato.setText(String.valueOf(plato.getPlatoId()));
         this.textIdTipoPlato.setText(String.valueOf(plato.getIdTipoPlato()));
@@ -216,10 +217,8 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
        String nombre = textNombre.getText();
        String descripcion = textDescripcion.getText();
        double precio = Double.parseDouble(textPrecio.getText());
-       Plato platoLocal = new Plato(idPlato, idTipoPlato, nombre, descripcion, precio);
-       
        PlatoControlador control = new PlatoControlador();
-       
+       Plato platoLocal = new Plato(idPlato, idTipoPlato, nombre, descripcion, precio);
        if(botonGuardar.getText().equals("Actualizar")){
            control.actualizarPlato(platoLocal, plato.getPlatoId());
            vistaPlato.mostrarPlatos();
