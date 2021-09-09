@@ -42,13 +42,27 @@ public class vistaPlatos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPlatos = new javax.swing.JTable();
-        botonCerrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         botonEditar = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        botonCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(tablaPlatos);
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        botonEditar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        botonEditar.setText("Editar seleccionado");
+        botonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonEditarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(botonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 170, 20));
+
+        botonCerrar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
         botonCerrar.setText("Cerrar");
         botonCerrar.setActionCommand("botonCerrar");
         botonCerrar.setDoubleBuffered(true);
@@ -62,49 +76,38 @@ public class vistaPlatos extends javax.swing.JFrame {
                 botonCerrarActionPerformed(evt);
             }
         });
+        jPanel1.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 80, 20));
 
-        botonEditar.setText("Editar seleccionado");
-        botonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonEditarMouseClicked(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/FONDO FINAL.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 430, 180));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(botonEditar)
-                .addGap(356, 356, 356)
-                .addComponent(botonCerrar)
-                .addContainerGap(477, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonCerrar)
-                    .addComponent(botonEditar))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_botonCerrarMouseClicked
-
     private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonCerrarActionPerformed
+
+    private void botonCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarMouseClicked
 
     private void botonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonEditarMouseClicked
         Integer id = (Integer) tablaPlatos.getModel().getValueAt(tablaPlatos.getSelectedRow(), 0);
@@ -152,6 +155,8 @@ public class vistaPlatos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrar;
     private javax.swing.JButton botonEditar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaPlatos;
     // End of variables declaration//GEN-END:variables
