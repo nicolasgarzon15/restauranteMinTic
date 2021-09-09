@@ -62,6 +62,7 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         textDescripcion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        botonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +121,13 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
 
         jLabel8.setText("campos, para ser agregado al menu.");
 
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonEliminarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,9 +153,11 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(botonCerrar)
-                        .addGap(75, 75, 75)
+                        .addGap(18, 18, 18)
                         .addComponent(botonGuardar)
-                        .addGap(167, 167, 167))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonEliminar)
+                        .addGap(133, 133, 133))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -188,7 +198,8 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(botonCerrar)
-                            .addComponent(botonGuardar))))
+                            .addComponent(botonGuardar)
+                            .addComponent(botonEliminar))))
                 .addGap(109, 109, 109))
         );
 
@@ -232,6 +243,12 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonCerrarMouseClicked
 
+    private void botonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonEliminarMouseClicked
+        PlatoControlador control = new PlatoControlador();
+        control.eliminarPlato(plato);
+        vistaPlato.mostrarPlatos();
+    }//GEN-LAST:event_botonEliminarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -269,6 +286,7 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrar;
+    private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

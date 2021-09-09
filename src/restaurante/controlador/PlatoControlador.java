@@ -40,4 +40,8 @@ public class PlatoControlador {
         daoPlato.actualizarPlato(plato, platoId);
     }
     
+    public void eliminarPlato(Plato plato){
+        daoPlato.eliminarPlato(plato);
+    }
+    
 }

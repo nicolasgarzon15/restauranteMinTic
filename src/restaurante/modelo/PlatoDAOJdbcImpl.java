@@ -122,7 +122,19 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
 
     @Override
     public void eliminarPlato(Plato plato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.conectar(); 
+        String sql = "DELETE FROM PLATO WHERE ID_PLATO=?;";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, plato.getPlatoId());
+            int filasEliminadas = ps.executeUpdate();
+            if(filasEliminadas>0){
+                System.out.println("Se eliminó un plato del menú");
+            }
+            //Completar
+        } catch (SQLException ex) {
+            Logger.getLogger(PlatoDAOJdbcImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
