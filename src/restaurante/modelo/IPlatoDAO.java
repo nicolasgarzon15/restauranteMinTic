@@ -15,6 +15,8 @@ public interface IPlatoDAO {
     
     public List<Plato> obtenerTodosLosPlatos();
     
+    public Plato obtenerPlatoPorId(Integer id);
+    
     public void insertarPlato(Plato plato);
     
     public void actualizarPlato(Plato plato, int platoId);

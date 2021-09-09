@@ -32,5 +32,12 @@ public class PlatoControlador {
         daoPlato.insertarPlato(plato);
     }
     
+    public Plato obtenerPlatoPorId(Integer id){
+        return daoPlato.obtenerPlatoPorId(id);
+    }
+    
+    public void actualizarPlato(Plato plato, int platoId) {
+        daoPlato.actualizarPlato(plato, platoId);
+    }
     
 }

@@ -5,11 +5,17 @@
  */
 package restaurante.vista;
 
+import restaurante.controlador.PlatoControlador;
+import restaurante.modelo.Plato;
+
 /**
  *
  * @author NicolasG
  */
 public class vistaInsertarPlatos extends javax.swing.JFrame {
+    
+    Plato plato;
+    vistaPlatos vistaPlato;
 
     /**
      * Creates new form vistaInsertarPlatos
@@ -18,6 +24,19 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
         initComponents();
     }
 
+    public vistaInsertarPlatos(Plato plato, vistaPlatos vistaPlato) {
+        this.plato = plato;
+        this.textIdPlato.setText(String.valueOf(plato.getPlatoId()));
+        this.textIdTipoPlato.setText(String.valueOf(plato.getIdTipoPlato()));
+        this.textNombre.setText(plato.getNombrePlato());
+        this.textDescripcion.setText(plato.getDescripcion());
+        this.textPrecio.setText(String.valueOf(plato.getPrecio()));
+        this.botonGuardar.setText("Actualizar");
+        this.vistaPlato = vistaPlato;
+        
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,7 +88,7 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Descripcioón:");
+        jLabel4.setText("Descripción:");
 
         jLabel5.setText("Precio:");
 
@@ -86,6 +105,11 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
         });
 
         botonCerrar.setText("Cerrar");
+        botonCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonCerrarMouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 20)); // NOI18N
         jLabel6.setText("INGRESE UN NUEVO PLATO");
@@ -187,8 +211,27 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonGuardarMouseClicked
-        // TODO add your handling code here:
+       int idPlato = Integer.parseInt(textIdPlato.getText()); 
+       int idTipoPlato = Integer.parseInt(textIdTipoPlato.getText()); 
+       String nombre = textNombre.getText();
+       String descripcion = textDescripcion.getText();
+       double precio = Double.parseDouble(textPrecio.getText());
+       Plato platoLocal = new Plato(idPlato, idTipoPlato, nombre, descripcion, precio);
+       
+       PlatoControlador control = new PlatoControlador();
+       
+       if(botonGuardar.getText().equals("Actualizar")){
+           control.actualizarPlato(platoLocal, plato.getPlatoId());
+           vistaPlato.mostrarPlatos();
+       }else{
+           control.insertarPlato(platoLocal);
+       }
+       
     }//GEN-LAST:event_botonGuardarMouseClicked
+
+    private void botonCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarMouseClicked
 
     /**
      * @param args the command line arguments

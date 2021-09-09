@@ -79,8 +79,7 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
 
     @Override
     public void insertarPlato(Plato plato) {
-        this.conectar();
-        //Falta completar 
+        this.conectar(); 
         String sql = "INSERT INTO PLATO (ID_PLATO,TIPO_PLATO,NOMBRE_PLATO,DESCRIPCION,PRECIO) VALUES (?,?,?,?,?);";
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -91,7 +90,7 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
             ps.setDouble(5, plato.getPrecio());
             int filasInsertadas = ps.executeUpdate();
             if(filasInsertadas>0){
-                System.out.println("Se insertó un nuevo plato al menu");
+                System.out.println("Se insertó un nuevo plato al menú");
             }
             //Completar
         } catch (SQLException ex) {
@@ -101,7 +100,24 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
 
     @Override
     public void actualizarPlato(Plato plato, int platoId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.conectar(); 
+        String sql = "UPDATE PLATO SET (ID_PLATO=?,TIPO_PLATO=?,NOMBRE_PLATO=?,DESCRIPCION=?,PRECIO=?) WHERE ID_PLATO=?;";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, plato.getPlatoId());
+            ps.setInt(2, plato.getIdTipoPlato());
+            ps.setString(3, plato.getNombrePlato());
+            ps.setString(4, plato.getDescripcion());
+            ps.setDouble(5, plato.getPrecio());
+            ps.setInt(6, platoId);
+            int filasActualizadas = ps.executeUpdate();
+            if(filasActualizadas>0){
+                System.out.println("Se actualizó un nuevo plato al menú");
+            }
+            //Completar
+        } catch (SQLException ex) {
+            Logger.getLogger(PlatoDAOJdbcImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -109,4 +125,28 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-}
+    @Override
+    public Plato obtenerPlatoPorId(Integer id) {
+        Plato plato = null; 
+        this.conectar();
+        String sql = "SELECT ¨FROM PLATO wher  id_plato = ? ";
+        try {
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet res = statement.executeQuery();
+            while(res.next()){
+                int platoId = res.getInt("ID_PLATO");
+                String tipoPlato = res.getString("NOMBRE_TIPO_PLATO");
+                String nombrePlato = res.getString("NOMBRE_PLATO");
+                String descripcion = res.getString("DESCRIPCION");
+                double precio = res.getDouble("PRECIO");
+                plato = new Plato(platoId, tipoPlato, nombrePlato, descripcion, precio);
+            }
+        } catch(SQLException e){
+            System.out.println("Error al consultar" + e.getMessage());
+            
+        }
+        return plato;
+    }
+    }
+
