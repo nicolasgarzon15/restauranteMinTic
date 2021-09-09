@@ -40,14 +40,12 @@ public class vistaPlatos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaPlatos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         botonEditar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-
-        jScrollPane1.setViewportView(tablaPlatos);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPlatos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +58,7 @@ public class vistaPlatos extends javax.swing.JFrame {
                 botonEditarMouseClicked(evt);
             }
         });
-        jPanel1.add(botonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 170, 20));
+        jPanel1.add(botonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 170, 20));
 
         botonCerrar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
         botonCerrar.setText("Cerrar");
@@ -76,26 +74,39 @@ public class vistaPlatos extends javax.swing.JFrame {
                 botonCerrarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 80, 20));
+        jPanel1.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 80, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/FONDO FINAL.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 430, 180));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 130));
+
+        jScrollPane1.setViewportView(tablaPlatos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap(266, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(139, Short.MAX_VALUE)))
         );
 
         pack();
