@@ -47,53 +47,82 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         textIdPlato = new javax.swing.JTextField();
         textIdTipoPlato = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        textPrecio = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        botonGuardar = new javax.swing.JButton();
-        botonCerrar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         textDescripcion = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         botonEliminar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        botonCerrar = new javax.swing.JButton();
+        botonGuardar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        textPrecio = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("ID del plato;");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        textIdPlato.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
         textIdPlato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textIdPlatoActionPerformed(evt);
             }
         });
+        jPanel1.add(textIdPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 120, 20));
 
         textIdTipoPlato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textIdTipoPlatoActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("ID del tipo de plato:");
-
-        jLabel3.setText("Nombre del plato:");
+        jPanel1.add(textIdTipoPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 120, -1));
 
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNombreActionPerformed(evt);
             }
         });
+        jPanel1.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 120, -1));
 
-        jLabel4.setText("Descripción:");
+        jLabel6.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("INGRESE UN NUEVO PLATO");
+        jLabel6.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        jPanel1.add(textDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 120, -1));
 
-        jLabel5.setText("Precio:");
+        botonEliminar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonEliminarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 90, 20));
 
+        jLabel7.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel7.setText("Ingrese los datos del nuevo plato, en los siguientes campos");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 400, 20));
+
+        botonCerrar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        botonCerrar.setText("Cerrar");
+        botonCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonCerrarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 80, 20));
+
+        botonGuardar.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
         botonGuardar.setText("Guardar");
         botonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,102 +134,50 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
                 botonGuardarActionPerformed(evt);
             }
         });
+        jPanel1.add(botonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 90, 20));
 
-        botonCerrar.setText("Cerrar");
-        botonCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonCerrarMouseClicked(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel5.setText("Precio:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        jPanel1.add(textPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 120, -1));
 
-        jLabel6.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 20)); // NOI18N
-        jLabel6.setText("INGRESE UN NUEVO PLATO");
-        jLabel6.setBorder(new javax.swing.border.MatteBorder(null));
+        jLabel4.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel4.setText("Descripción:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
-        jLabel7.setText("Ingrese los datos del nuevo plato, en los siguientes");
+        jLabel3.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel3.setText("Nombre del plato:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel2.setText("ID del tipo de plato:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel1.setText("ID del plato:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/FONDO FINAL.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
 
         jLabel8.setText("campos, para ser agregado al menu.");
-
-        botonEliminar.setText("Eliminar");
-        botonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonEliminarMouseClicked(evt);
-            }
-        });
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(299, 299, 299)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textIdTipoPlato)
-                    .addComponent(textIdPlato)
-                    .addComponent(textNombre)
-                    .addComponent(textPrecio)
-                    .addComponent(textDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
-                .addGap(108, 108, 108))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botonCerrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonEliminar)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(127, 127, 127))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textIdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textIdTipoPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(textDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botonCerrar)
-                            .addComponent(botonGuardar)
-                            .addComponent(botonEliminar))))
-                .addGap(109, 109, 109))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -296,6 +273,8 @@ public class vistaInsertarPlatos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField textDescripcion;
     private javax.swing.JTextField textIdPlato;
     private javax.swing.JTextField textIdTipoPlato;
