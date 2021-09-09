@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Valeria
  */
-public class PlatoDAOJdbcImpl implements IPlatoDAO {
+public class PlatoDAOJdbcImpl implements IMeseroDAO,IPlatoDAO{
 
     private Connection conexion;
 
@@ -159,6 +159,76 @@ public class PlatoDAOJdbcImpl implements IPlatoDAO {
             
         }
         return plato;
+    }
+
+    @Override
+    public List<Mesero> obtenerTodosLosMeseros() {
+        List<Mesero> meseros = new ArrayList<Mesero>();
+        this.conectar();
+        String sql = "select * from mesero;";
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet res = statement.executeQuery(sql);
+            while(res.next()){
+                int meseroId = res.getInt("ID_MESERO");
+                int documentoId = res.getInt("DOCUMENTO_MESERO");
+                String nombreMesero = res.getString("NOMBRE_MESERO");
+                String apellidoMesero = res.getString("APELLIDO_MESERO");
+                String correoMesero = res.getString("CORREO_MESERO");
+                String telefonoMesero = res.getString("TELEFONO");
+                Mesero mesero = new Mesero(meseroId, documentoId, nombreMesero, apellidoMesero, correoMesero, telefonoMesero);
+                meseros.add(mesero);
+            }
+        } catch(SQLException e){
+            System.out.println("Error al consultar meseros" + e.getMessage());
+            
+        }
+        return meseros;
+    }
+
+    @Override
+    public Mesero obtenerMeseroPorId(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertarMesero(Mesero mesero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void actualizarMesero(Mesero mesero, int meseroId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminarMesero(Mesero mesero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Mesero> obtenerEmpleadoDelMes() {
+        List<Mesero> meseros = new ArrayList<Mesero>();
+        this.conectar();
+        String sql = "select Nombre_mesero,apellido_mesero,documento_mesero,telefono,cantidad_pedidos, max(sumatoria) as sumatoria from (SELECT Nombre_mesero,apellido_mesero,documento_mesero,telefono, count(*) as cantidad_pedidos,sum(precio) as sumatoria from mesero,orden,plato where mesero=id_mesero AND plato=id_plato group by nombre_mesero) as tabla;";
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet res = statement.executeQuery(sql);
+            while(res.next()){
+                String nombreMesero = res.getString("Nombre_mesero");
+                String apellidoMesero = res.getString("apellido_mesero");
+                int documentoMesero = res.getInt("documento_mesero");
+                String telefono = res.getString("telefono");
+                int cantidad = res.getInt("cantidad_pedidos");
+                float sumatoria = res.getFloat("sumatoria");
+                Mesero mesero = new Mesero(nombreMesero, apellidoMesero, documentoMesero, telefono, cantidad, sumatoria);
+                meseros.add(mesero);
+            }
+        } catch(SQLException e){
+            System.out.println("Error al consultar meseros" + e.getMessage());
+            
+        }
+        return meseros;
     }
     }
 
